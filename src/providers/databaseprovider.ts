@@ -1,4 +1,5 @@
 import { users } from 'src/ enity/users.enity';
+import { videos } from 'src/ enity/videos.enity';
 import { createConnection } from 'typeorm';
 
 export const DatabaseProvider = [
@@ -12,7 +13,7 @@ export const DatabaseProvider = [
         username: 'mlktskna',
         password: 'bYOnzcBrLz2mAlW09A3rHvolgG7R2Ht7',
         database: 'mlktskna',
-        entities: [users],
+        entities: [users, videos],
         synchronize: true,
       }),
   },

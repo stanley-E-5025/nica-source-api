@@ -1,19 +1,24 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class users {
+export class videos {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  username: string;
+  url: string;
 
   @Column()
-  email: string;
+  details: string;
 
   @Column()
-  picture: string;
+  likes: number;
 
   @Column()
-  role: string;
+  title: string;
+  @Column()
+  published: boolean;
+
+  @Column()
+  creation_date: string;
 }
