@@ -15,6 +15,9 @@ export const DatabaseProvider = [
         database: 'sqecpswsrlzigg',
         entities: [users, videos],
         synchronize: true,
+        ssl:{
+          rejectUnauthorized: false
+        }
       }),
   },
 ];
