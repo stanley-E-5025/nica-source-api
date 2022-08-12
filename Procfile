@@ -1,1 +1,1 @@
-web: node dist/api/main.ts
+web: node dist/main.js
