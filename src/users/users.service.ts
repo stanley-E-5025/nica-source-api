@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { users } from 'src/ enity/users.enity';
-import { InsertResult, Repository, DeleteResult } from 'typeorm';
+import { InsertResult, Repository , DeleteResult} from 'typeorm';
 
 @Injectable()
 export class UsersService {
@@ -11,24 +11,32 @@ export class UsersService {
     return this.UsersRepositoty.find();
   }
 
-  async addUsers(User: users): Promise<InsertResult> {
+
+  async addUsers(User:users): Promise<InsertResult>{
     return this.UsersRepositoty.insert(User);
   }
 
-  async findOne(id: number): Promise<users> {
+  async findOne (id:number): Promise<users>{
     return this.UsersRepositoty.findOneBy({
-      id,
-    });
+      id
+    })
   }
 
-  async updateUser(id: number, Users: users): Promise<users> {
-    const UserToUpdate = await this.findOne(id);
+
+  async findByUid(uid:string): Promise<users>{
+    return this.UsersRepositoty.findOneBy({
+      uid
+    })
+  }
+
+  async updateUser (id:number , Users:users): Promise<users>{
+    const UserToUpdate = await this.findOne(id)
 
     if (UserToUpdate === undefined) {
-      return;
+      return 
     }
-    await this.UsersRepositoty.update(id, Users);
-    return this.findOne(id);
+    await this.UsersRepositoty.update(id, Users)
+    return this.findOne(id)
   }
 
   async deleteUser(id: number): Promise<DeleteResult> {
@@ -39,4 +47,6 @@ export class UsersService {
     }
     return this.UsersRepositoty.delete(id);
   }
+
+
 }

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { videos } from './videos.enity';
 
 @Entity()
 export class users {
@@ -16,4 +17,18 @@ export class users {
 
   @Column()
   role: string;
+
+  @Column()
+  uid: string;
+
+  @Column('text', { array: true })
+  subs: string[];
+
+  @Column('text', { array: true })
+  liked_videos: string[];
+
+  @Column('text', { array: true })
+  my_videos: string[];
 }
+
+

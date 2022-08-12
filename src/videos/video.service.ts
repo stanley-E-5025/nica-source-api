@@ -2,7 +2,6 @@ import { Inject, Injectable } from '@nestjs/common';
 import { videos } from 'src/ enity/videos.enity';
 import { InsertResult, Repository, DeleteResult } from 'typeorm';
 
-
 @Injectable()
 export class VideoService {
   constructor(
@@ -12,7 +11,7 @@ export class VideoService {
     return this.VideoRepository.find();
   }
 
-  async addVideos(Videos:videos): Promise<InsertResult> {
+  async addVideos(Videos: videos): Promise<InsertResult> {
     return this.VideoRepository.insert(Videos);
   }
 
@@ -22,7 +21,13 @@ export class VideoService {
     });
   }
 
-  async updateVideos(id: number, Videos:videos): Promise<videos> {
+  async findOneByuid(uid: string): Promise<videos> {
+    return this.VideoRepository.findOneBy({
+      uid,
+    });
+  }
+
+  async updateVideos(id: number, Videos: videos): Promise<videos> {
     const UserToUpdate = await this.findOne(id);
 
     if (UserToUpdate === undefined) {

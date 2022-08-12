@@ -32,9 +32,9 @@ export class VideoController {
     return this.VideoService.updateVideos(Number(id), Video);
   }
 
-  @Get(':id')
-  getOneVideo(@Param('id') id: string): Promise<videos> {
-    return this.VideoService.findOne(Number(id));
+  @Get(':uid')
+  getOneVideo(@Param('uid') uid: string): Promise<videos> {
+    return this.VideoService.findOneByuid(uid);
   }
 
   @Delete(':id')

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { users } from './users.enity';
 
 @Entity()
 export class videos {
@@ -12,13 +13,17 @@ export class videos {
   details: string;
 
   @Column()
-  likes: number;
-
-  @Column()
   title: string;
+
   @Column()
   published: boolean;
 
   @Column()
   creation_date: string;
+
+  @Column()
+  uid: string;
+
+  @Column('text', { array: true })
+  likes: string[];
 }

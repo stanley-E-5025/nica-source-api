@@ -24,9 +24,9 @@ export class UserController {
     return this.UserService.addUsers(User);
   }
 
-  @Get(':id')
-  getOneUser(@Param('id') id: string): Promise<users> {
-    return this.UserService.findOne(Number(id));
+  @Get(':uid')
+  getOneUser(@Param('uid') uid: string): Promise<users> {
+    return this.UserService.findByUid(uid);
   }
 
   @Patch(':id')
