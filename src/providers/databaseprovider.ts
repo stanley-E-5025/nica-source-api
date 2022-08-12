@@ -12,7 +12,7 @@ export const DatabaseProvider = [
         port: 5432,
         username: 'sqecpswsrlzigg',
         password: 'fccf800607ef7350884edcb16ee35a36382d69e0c0fdab5ab54d5826b779213e',
-        database: 'sqecpswsrlzigg',
+        database: 'dfkjn02e140ebn',
         entities: [users, videos],
         synchronize: true,
         ssl:{
